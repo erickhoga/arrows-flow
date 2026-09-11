@@ -98,15 +98,8 @@ function move(arrow) {
     return;
   }
   arrow.leaving = true;
-  var button = boardElement.querySelector("[style*=\"" + (arrow.x + 1) + "\"]");
-  var step = vector[arrow.direction];
   arrows = arrows.filter(function (item) { return item !== arrow; });
   render();
-  if (button) {
-    button.style.setProperty("--dx", step.x * 70 + "px");
-    button.style.setProperty("--dy", step.y * 70 + "px");
-    button.classList.add("exit");
-  }
   if (!arrows.length) finishLevel();
 }
 
