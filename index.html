@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Fluxo de Setas</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="game-shell">
+    <header class="topbar">
+      <div>
+        <span class="eyebrow">PUZZLE CALMO</span>
+        <h1>Fluxo de Setas</h1>
+      </div>
+      <button id="new-game" class="ghost-button" type="button">Novo jogo</button>
+    </header>
+
+    <section class="hud" aria-label="Informações da partida">
+      <div><span>Nível</span><strong id="level">1</strong></div>
+      <div><span>Setas</span><strong id="remaining">0</strong></div>
+      <div><span>Vidas</span><strong id="hearts">♥♥♥</strong></div>
+    </section>
+
+    <section class="game-card">
+      <p id="message" class="message">Escolha uma seta com caminho livre até a borda.</p>
+      <div id="board" class="board" role="grid" aria-label="Tabuleiro de Fluxo de Setas"></div>
+      <div class="legend"><span class="dot blue"></span> caminho livre <span class="dot muted"></span> bloqueada</div>
+    </section>
+
+    <div id="result" class="result" hidden>
+      <div class="result-card">
+        <span class="eyebrow">TABULEIRO LIMPO</span>
+        <h2 id="result-title">Muito bem!</h2>
+        <p id="result-text"></p>
+        <button id="next-level" type="button">Próximo nível</button>
+      </div>
+    </div>
+  </main>
+  <script src="game.js"></script>
+</body>
+</html>
