@@ -27,12 +27,19 @@ h1 { margin-bottom: 0; font-size: clamp(30px, 8vw, 48px); letter-spacing: -.04em
 #hearts { color: #ff7e9d; letter-spacing: 2px; font-size: 15px; }
 .game-card { padding: 16px; border: 1px solid var(--line); border-radius: 18px; background: #0e192b; box-shadow: 0 22px 60px #0005; }
 .message { min-height: 22px; margin: 0 0 14px; color: var(--text-soft); text-align: center; font-size: 14px; }
-.board { display: grid; grid-template-columns: repeat(8, 1fr); gap: 5px; width: min(500px, 100%); margin: auto; padding: 8px; border: 1px solid #304464; border-radius: 12px; background: #0a1424; }
-.cell { aspect-ratio: 1; display: grid; place-items: center; border: 1px solid #172942; border-radius: 5px; background: #0d1b30; }
-.arrow { width: 100%; height: 100%; border: 1px solid #4b9de5; border-radius: 5px; background: linear-gradient(145deg, #256398, #17446f); color: #e9f6ff; font-size: clamp(22px, 6vw, 34px); line-height: 1; transition: transform .16s, opacity .16s, filter .16s; }
-.arrow:hover, .arrow:focus-visible { filter: brightness(1.35); outline: 2px solid #9bd4ff; outline-offset: 2px; }
-.arrow.blocked { border-color: #36506d; background: #17283e; color: #73859f; }
-.arrow.exit { opacity: 0; transform: translate(var(--dx), var(--dy)) scale(.7); }
+.board { width: min(560px, 100%); aspect-ratio: 1; margin: auto; padding: 8px; border: 1px solid #304464; border-radius: 12px; background: #0a1424; }
+.board svg { display: block; width: 100%; height: 100%; overflow: visible; }
+.grid-lines line { stroke: #1a2b45; stroke-width: 2; stroke-dasharray: 3 10; }
+.snake-body { fill: none; stroke: #54b5ff; stroke-width: 38; stroke-linecap: round; stroke-linejoin: round; filter: drop-shadow(0 5px 5px #0006); transition: stroke .15s, stroke-dashoffset .72s cubic-bezier(.5, 0, .9, .4); }
+.snake-group { cursor: pointer; }
+.snake-group.blocked .snake-body { stroke: #536a86; }
+.snake-group:hover .snake-body, .snake-group.free:hover .snake-body { stroke: #8bd0ff; }
+.snake-arrow { fill: #eaf7ff; font-size: 52px; font-weight: 900; pointer-events: none; transition: opacity .25s, transform .25s; }
+.snake-hit { cursor: pointer; }
+.snake-group.leaving { pointer-events: none; }
+.snake-group.leaving .snake-body { stroke: #9ce0ff; }
+.snake-group.shake { animation: shake .28s linear; }
+@keyframes shake { 25% { transform: translate(5px, 0); } 50% { transform: translate(-5px, 0); } 75% { transform: translate(3px, 0); } }
 .legend { display: flex; align-items: center; justify-content: center; gap: 7px; margin-top: 14px; color: var(--text-soft); font-size: 12px; }
 .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--blue); }
 .dot.muted { margin-left: 10px; background: #52647f; }
